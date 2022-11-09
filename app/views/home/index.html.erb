@@ -1,0 +1,62 @@
+<ul>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        </li>
+
+        <li>
+          Voici ton email : <%= current_user.email %>
+        </li>
+
+        
+        <li>
+          <%= link_to "Edit email / password", edit_user_registration_path %>
+        </li>
+
+      <% else %>
+        <li>    
+          <%= link_to "Sign in", new_user_session_path %>
+        </li>
+
+        <li>
+          <%= link_to "Sign up", new_user_registration_path %>
+        </li>
+
+      <% end %>
+    </ul>   
+   
+   
+   
+   
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Bienvenue</h1>
+         
+        </div>
+      </div>
+<% @events.reverse_each do |event| %>
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2><%= event.title%></h2>
+            <p><%= render event %> </p>
+            
+      <%= link_to "Show this event", event, class: "btn btn-outline-success" %>
+      </div></p>
+          </div>
+
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+<% end %>
+
+    </main>
+
+    <footer class="container">
+      <p>&copy; Company 2017-2018</p>
+    </footer>
+
